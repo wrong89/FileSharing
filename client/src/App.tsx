@@ -1,10 +1,10 @@
-import Counter from '@/components/Counter/Counter';
 import './App.scss';
+import AppRouter from './components/AppRouter/AppRouter';
 
 function App() {
     return (
         <>
-            <Counter />
+            <AppRouter />
         </>
     );
 }
