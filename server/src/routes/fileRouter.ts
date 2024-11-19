@@ -3,6 +3,7 @@ import FileController from '../controllers/FileController';
 
 const router = Router();
 
-router.get('/test', FileController.test);
+router.post('/save', FileController.save);
+router.get('/read', FileController.read);
 
 export default router;
