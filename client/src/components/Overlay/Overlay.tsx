@@ -1,53 +1,49 @@
-import { useCallback } from 'react';
-import { useDropzone } from 'react-dropzone';
+import { downloadZip } from 'client-zip';
+import { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Button from '../ui/Button/Button';
+import DropZone from '../ui/DropZone/DropZone';
 import cls from './Overlay.module.scss';
 
-interface IFile extends File {
-    handle?: {
-        kind: string;
-        name: string;
-    };
-}
+type SavedFile = {
+    file?: Partial<File>;
+    fileBuffer: ArrayBuffer;
+};
 
 const Overlay = () => {
     const navigate = useNavigate();
+    const [savedFile, setSavedFile] = useState<SavedFile | null>();
 
-    const onDrop = useCallback((acceptedFiles: IFile[]) => {
-        acceptedFiles.forEach((file: IFile) => {
-            const reader = new FileReader();
+    const onDrop = useCallback((acceptedFiles: File[]) => {
+        if (!acceptedFiles.length) {
+            return;
+        }
 
-            reader.onabort = () => console.log('file reading was aborted');
-            reader.onerror = () => console.log('file reading has failed');
-            reader.onload = () => {
-                const binaryStr = reader.result;
+        if (acceptedFiles.length > 1) {
+            downloadZip(acceptedFiles)
+                .arrayBuffer()
+                .then((fileBuffer) => {
+                    setSavedFile({ fileBuffer });
+                });
+            return;
+        }
 
-                if (file && file.handle) {
-                    console.log('Its only 1 file', {
-                        file,
-                        binaryStr,
-                    });
-                } else {
-                    console.log('Its folder');
-                }
-            };
-            reader.readAsArrayBuffer(file);
+        const file = acceptedFiles[0];
+
+        file.arrayBuffer().then((fileBuffer) => {
+            console.log('Obj', { file, fileBuffer });
+            setSavedFile({
+                file,
+                fileBuffer,
+            });
         });
     }, []);
-
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
 
     return (
         <div className={cls.overlay}>
             <h1>Some</h1>
-            <div className={cls.overlay__drop} {...getRootProps()}>
-                <input {...getInputProps()} />
-                {isDragActive ? (
-                    <p>Drop the files here ...</p>
-                ) : (
-                    <p>Drag 'n' drop some files here, or click to select files</p>
-                )}
-            </div>
+            <DropZone onDrop={onDrop} />
+            <Button onClick={() => console.log('Click', savedFile)}>Click</Button>
         </div>
     );
 };
