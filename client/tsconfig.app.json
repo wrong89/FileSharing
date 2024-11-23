@@ -27,7 +27,9 @@
             "@/*": ["src/*"],
             "@components/*": ["src/components/*"],
             "@assets/*": ["src/assets/*"],
-            "@lib/*": ["src/lib/*"]
+            "@lib/*": ["src/lib/*"],
+            "@types/*": ["src/types/*"],
+            "@api/*": ["src/api/*"]
         }
     },
     "include": ["src"]

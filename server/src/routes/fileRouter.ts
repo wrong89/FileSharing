@@ -4,6 +4,6 @@ import FileController from '../controllers/FileController';
 const router = Router();
 
 router.post('/save', FileController.save);
-router.get('/read', FileController.read);
+router.get('/read/:id', FileController.read);
 
 export default router;

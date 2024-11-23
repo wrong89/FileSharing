@@ -1,14 +1,10 @@
+import FileApi from '@/api/FileApi';
+import { SavedFile } from '@/types/File';
 import { downloadZip } from 'client-zip';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Button from '../ui/Button/Button';
 import DropZone from '../ui/DropZone/DropZone';
 import cls from './Overlay.module.scss';
-
-type SavedFile = {
-    file?: Partial<File>;
-    fileBuffer: ArrayBuffer;
-};
 
 const Overlay = () => {
     const navigate = useNavigate();
@@ -39,11 +35,20 @@ const Overlay = () => {
         });
     }, []);
 
+    const redirectToSavedFile = async () => {
+        if (savedFile?.fileBuffer) {
+            const savedFileRoute = await FileApi.save(savedFile);
+            navigate(savedFileRoute);
+        }
+    };
+
+    useEffect(() => {
+        redirectToSavedFile();
+    }, [savedFile]);
+
     return (
         <div className={cls.overlay}>
-            <h1>Some</h1>
             <DropZone onDrop={onDrop} />
-            <Button onClick={() => console.log('Click', savedFile)}>Click</Button>
         </div>
     );
 };
