@@ -3,15 +3,14 @@ import FileService from '../services/FileService';
 
 class FileController {
     async save(req: Request, res: Response) {
-        const { file } = req.body;
+        const files = req.files;
 
-        if (file) {
-            const id = await FileService.saveFile(file);
+        if (files) {
+            const id = await FileService.saveFile(files.fileBuffer);
             const savedFile = await FileService.getFile(id);
 
             console.log('id', id);
             // console.log('GET', id && (await FileService.getFile(id)));
-
             res.send({
                 id,
                 savedFile,

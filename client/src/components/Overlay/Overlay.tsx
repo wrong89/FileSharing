@@ -36,9 +36,11 @@ const Overlay = () => {
     }, []);
 
     const redirectToSavedFile = async () => {
-        if (savedFile?.fileBuffer) {
-            const savedFileRoute = await FileApi.save(savedFile);
-            navigate(savedFileRoute);
+        if (savedFile && savedFile.fileBuffer) {
+            const savedFileObj = await FileApi.save(savedFile);
+            console.log('savedFileObj', JSON.parse(savedFileObj.file));
+
+            // navigate(savedFileRoute);
         }
     };
 

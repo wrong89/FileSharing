@@ -4,7 +4,8 @@ import axios from 'axios';
 
 interface FileApiRepository {
     read: (id: string) => void;
-    save: (fileToSave: SavedFile) => Promise<string>;
+    // save: (fileToSave: SavedFile) => Promise<string>;
+    save: (fileToSave: SavedFile) => void;
 }
 
 class FileApi implements FileApiRepository {
@@ -28,11 +29,27 @@ class FileApi implements FileApiRepository {
         console.log(data);
     }
 
-    async save(file: SavedFile) {
-        const { data } = await axios.post(this.generateApiUrl('save'), file);
-        const savedFileRoute = `${AppRoutes.READ}/${data.id}`;
+    async save(fileToSave: SavedFile) {
+        const formData = new FormData();
+        let fileName = fileToSave.file?.name;
 
-        return savedFileRoute;
+        if (!fileName) {
+            fileName = 'fileSharing.zip';
+        }
+
+        const fileBlob = new Blob([fileToSave.fileBuffer], {
+            type: fileToSave.file?.type,
+        });
+        formData.append('fileBuffer', fileBlob, fileName);
+
+        const { data } = await axios.post(this.generateApiUrl('save'), formData);
+
+        const savedFileRoute = this.generateApiUrl(AppRoutes.READ, data.id);
+
+        return {
+            savedFileRoute,
+            file: data.savedFile,
+        };
     }
 }
 

@@ -1,3 +1,4 @@
+import { UploadedFile } from 'express-fileupload';
 import db from '../db';
 
 class FileService {
@@ -7,7 +8,7 @@ class FileService {
         });
     }
 
-    public async saveFile(file: File) {
+    public async saveFile(file: UploadedFile | UploadedFile[]) {
         const key = this.generateFileKey();
         const exists = await db.exists(key);
 
