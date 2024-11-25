@@ -2,8 +2,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 import cors from 'cors';
-// import bus
-import express, { Request, Response } from 'express';
+import express from 'express';
 import fileUpload from 'express-fileupload';
 import router from './routes';
 
@@ -16,16 +15,10 @@ const app = express();
 app.use(cors());
 app.use(fileUpload({}));
 
-app.use(express.json()); // Used to parse JSON bodies
-app.use(express.urlencoded()); //Parse URL-encoded bodies
+app.use(express.json());
+app.use(express.urlencoded());
 
 app.use('/api', router);
-
-app.post('/file/test', (req: Request, res: Response) => {
-    console.log('Files', req.files);
-
-    res.sendStatus(200);
-});
 
 app.listen(PORT, async () => {
     await redis.connect();

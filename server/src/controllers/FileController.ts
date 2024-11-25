@@ -9,8 +9,6 @@ class FileController {
             const id = await FileService.saveFile(files.fileBuffer);
             const savedFile = await FileService.getFile(id);
 
-            console.log('id', id);
-            // console.log('GET', id && (await FileService.getFile(id)));
             res.send({
                 id,
                 savedFile,
@@ -24,6 +22,8 @@ class FileController {
         const { id } = req.params;
 
         const data = await FileService.getFile(id);
+
+        console.log('READ CONTROLLER DATA', data);
 
         if (data) {
             res.send(JSON.parse(data));

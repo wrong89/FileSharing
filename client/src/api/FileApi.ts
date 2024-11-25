@@ -1,5 +1,5 @@
 import { AppRoutes } from '@/config/routeConfig/routeConfig';
-import { SavedFile } from '@/types/File';
+import { FileFromStorage, SavedFile } from '@/types/File';
 import axios from 'axios';
 
 interface FileApiRepository {
@@ -9,13 +9,13 @@ interface FileApiRepository {
 }
 
 class FileApi implements FileApiRepository {
-    baseUrl = this.generateApiUrl(import.meta.env.VITE_API_URL, 'file');
+    apiBaseUrl = this.generateApiUrl([import.meta.env.VITE_API_URL, 'file'], true);
 
-    private generateApiUrl(...urlParts: string[]): string {
+    private generateApiUrl(urlParts: string[], apiUrl = false): string {
         let url = '';
 
-        if (this.baseUrl) {
-            url += this.baseUrl + '/';
+        if (this.apiBaseUrl && apiUrl) {
+            url += this.apiBaseUrl + '/';
         }
 
         url += urlParts.join('/');
@@ -23,10 +23,12 @@ class FileApi implements FileApiRepository {
         return url;
     }
 
-    async read(id: string) {
-        const { data } = await axios.get(this.generateApiUrl('read', id));
+    async read(id: string): Promise<FileFromStorage> {
+        const { data } = await axios.get(this.generateApiUrl(['read', id], true));
 
-        console.log(data);
+        console.log('FileAPI', data);
+
+        return data;
     }
 
     async save(fileToSave: SavedFile) {
@@ -42,9 +44,9 @@ class FileApi implements FileApiRepository {
         });
         formData.append('fileBuffer', fileBlob, fileName);
 
-        const { data } = await axios.post(this.generateApiUrl('save'), formData);
+        const { data } = await axios.post(this.generateApiUrl(['save'], true), formData);
 
-        const savedFileRoute = this.generateApiUrl(AppRoutes.READ, data.id);
+        const savedFileRoute = this.generateApiUrl([AppRoutes.READ, data.id], false);
 
         return {
             savedFileRoute,

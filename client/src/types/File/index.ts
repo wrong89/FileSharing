@@ -3,7 +3,17 @@ export type SavedFile = {
     fileBuffer: ArrayBuffer;
 };
 
-// export type SavedFile = {
-//     file?: Partial<File>;
-//     fileBuffer: Blob;
-// };
+export interface FileFromStorage {
+    encoding: string;
+    md5: string;
+    mimetype: string;
+    name: string;
+    size: number;
+    tempFilePath: string;
+    truncated: boolean;
+
+    data: {
+        data: [];
+        type: string;
+    };
+}
