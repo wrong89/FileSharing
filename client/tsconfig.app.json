@@ -29,7 +29,8 @@
             "@assets/*": ["src/assets/*"],
             "@lib/*": ["src/lib/*"],
             "@types/*": ["src/types/*"],
-            "@api/*": ["src/api/*"]
+            "@api/*": ["src/api/*"],
+            "@config/*": ["src/config/*"]
         }
     },
     "include": ["src"]

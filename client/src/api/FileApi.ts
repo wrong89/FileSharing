@@ -1,5 +1,5 @@
-import { AppRoutes } from '@/config/routeConfig/routeConfig';
 import { FileFromStorage, SavedFile } from '@/types/File';
+import { AppRoutes } from '@config/routeConfig/routeConfig';
 import axios from 'axios';
 
 interface FileApiRepository {

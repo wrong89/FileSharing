@@ -12,6 +12,7 @@ export default defineConfig({
             '@lib': path.resolve(__dirname, './src/lib/'),
             '@types': path.resolve(__dirname, './src/types/'),
             '@api': path.resolve(__dirname, './src/api/'),
+            '@config': path.resolve(__dirname, './src/config/'),
         },
     },
     plugins: [react()],

@@ -3,6 +3,7 @@ import FileInfo from '@/components/FileInfo/FileInfo';
 import Button from '@/components/ui/Button/Button';
 import { FileFromStorage } from '@/types/File';
 import { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 
 type DownloadFile = {
@@ -13,6 +14,8 @@ type DownloadFile = {
 const ReadFilePage = () => {
     const location = useLocation();
     const [fileData, setFileData] = useState<FileFromStorage>();
+    const { t } = useTranslation();
+
     // * Correctly Working
     // const getDownloadConfiguration = (): Partial<DownloadFile> => {
     //     const result: Partial<DownloadFile> = {};
@@ -55,7 +58,8 @@ const ReadFilePage = () => {
             {/* // * Correctly Working */}
             {/* {savedFile && <a {...getDownloadConfiguration()}>Download</a>} */}
             <h1>ReadFilePage</h1>
-            <Button onClick={() => console.log(fileData)}>Check the file data</Button>
+            <h1>{t('test')}</h1>
+            <Button onClick={() => console.log(import.meta.env.DEV)}>Check the file data</Button>
             {fileData && <FileInfo file={fileData} />}
         </div>
     );
