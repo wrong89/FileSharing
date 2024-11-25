@@ -1,0 +1,21 @@
+@import "reset";
+@import "./variables/global.scss";
+@import "./themes/dark.scss";
+@import "./themes/light.scss";
+@import "./fonts/index.scss";
+
+body {
+    font: var(--font-m);
+    color: var(--primary-color);
+}
+
+.container {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.app {
+    background: var(--bg-color);
+    min-height: 100vh;
+}
