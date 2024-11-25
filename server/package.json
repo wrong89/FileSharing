@@ -4,9 +4,10 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "dev": "nodemon src/index.ts",
+        "dev": "nodemon src/index.ts && npm run start-redis",
         "build": "tsc",
-        "start": "node src/index.ts"
+        "start": "node src/index.ts",
+        "start-redis": "docker run -p 6379:6379 -it redis/redis-stack-server:latest"
     },
     "keywords": [],
     "author": "",
