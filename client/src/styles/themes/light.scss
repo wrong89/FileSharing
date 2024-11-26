@@ -1,8 +1,18 @@
 .app_light_theme {
-    --bg-color: #e8e8ea;
-    --inverted-bg-color: #090949;
-    --primary-color: #0232c2;
-    --secondary-color: #0449e0;
-    --inverted-primary-color: #04ff04;
-    --inverted-secondary-color: #049604;
+    --light-primary-color: #c5cae9;
+
+    --light-accent-color: #ff80ab;
+
+    --primary-text-color: var(--light-theme-text-color);
+    --primary-background-color: var(--light-theme-background-color);
+    --secondary-text-color: var(--light-theme-secondary-color);
+    --disabled-text-color: var(--light-theme-disabled-color);
+    --divider-color: var(--light-theme-divider-color);
+
+    --light-theme-background-color: #fff;
+    --light-theme-base-color: #000;
+    --light-theme-text-color: #212121;
+    --light-theme-secondary-color: #737373;
+    --light-theme-disabled-color: #9b9b9b;
+    --light-theme-divider-color: #dbdbdb;
 }

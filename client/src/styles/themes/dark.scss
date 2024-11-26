@@ -1,8 +1,25 @@
 .app_dark_theme {
-    --bg-color: #090949;
-    --inverted-bg-color: #e8e8ea;
-    --primary-color: #04ff04;
-    --secondary-color: #049604;
-    --inverted-primary-color: #0232c2;
-    --inverted-secondary-color: #0452ff;
+    --yt-spec-text-primary: #f1f1f1;
+    --yt-spec-text-primary-inverse: #0f0f0f;
+
+    --primary-color: #3f51b5;
+
+    --dark-primary-color: #303f9f;
+    --dark-accent-color: #f50057;
+
+    --primary-text-color: var(--dark-theme-text-color);
+    --primary-background-color: var(--dark-theme-background-color);
+    --secondary-text-color: var(--dark-theme-secondary-color);
+    --disabled-text-color: var(--dark-theme-disabled-color);
+    --divider-color: var(--dark-theme-divider-color);
+
+    --dark-theme-background-color: #212121;
+    --dark-theme-base-color: #fff;
+    --dark-theme-text-color: #fff;
+    --dark-theme-secondary-color: #bcbcbc;
+    --dark-theme-disabled-color: #646464;
+    --dark-theme-divider-color: #3c3c3c;
+    --text-primary-color: var(--dark-theme-text-color);
+    --default-primary-color: var(--primary-color);
 }
+

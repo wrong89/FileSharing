@@ -6,7 +6,7 @@
 
 body {
     font: var(--font-m);
-    color: var(--primary-color);
+    color: var(--primary-text-color);
 }
 
 .container {
@@ -16,6 +16,6 @@ body {
 }
 
 .app {
-    background: var(--bg-color);
+    background: var(--primary-background-color);
     min-height: 100vh;
 }
