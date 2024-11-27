@@ -7,13 +7,22 @@
     --dark-primary-color: #303f9f;
     --dark-accent-color: #f50057;
 
-    --primary-text-color: var(--dark-theme-text-color);
     --primary-background-color: var(--dark-theme-background-color);
+    --primary-text-color: var(--dark-theme-text-color);
+
+    --primary-inverted-text-color: var(--dark-theme-inverted-text-color);
+    --primary-inverted-background-color: var(--dark-theme-background-inverted-color);
+
     --secondary-text-color: var(--dark-theme-secondary-color);
     --disabled-text-color: var(--dark-theme-disabled-color);
     --divider-color: var(--dark-theme-divider-color);
 
-    --dark-theme-background-color: #212121;
+    // --dark-theme-background-color: #212121;
+    --dark-theme-background-color: #0f0f0f;
+
+    --dark-theme-background-inverted-color: #fff;
+    --dark-theme-inverted-text-color: #0f0f0f;
+    
     --dark-theme-base-color: #fff;
     --dark-theme-text-color: #fff;
     --dark-theme-secondary-color: #bcbcbc;

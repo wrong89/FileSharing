@@ -1,22 +1,45 @@
 import { classNames } from '@/lib/classNames/classNames';
-import { ButtonHTMLAttributes, FC, MouseEvent } from 'react';
+import { ButtonHTMLAttributes, FC } from 'react';
 import cls from './Button.module.scss';
 
+export enum ButtonTheme {
+    CLEAR = 'clear',
+    CLEAR_INVERTED = 'clearInverted',
+    OUTLINE = 'outline',
+    BACKGROUND = 'background',
+    BACKGROUND_INVERTED = 'backgroundInverted',
+}
+
+export enum ButtonSize {
+    M = 'size_m',
+    L = 'size_l',
+    XL = 'size_xl',
+}
+
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-    onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+    className?: string;
+    theme?: ButtonTheme;
+    size?: ButtonSize;
+    square?: boolean;
 }
 
 const Button: FC<ButtonProps> = (props) => {
-    const { onClick, children, className = '' } = props;
+    const {
+        className = '',
+        children,
+        theme = ButtonTheme.BACKGROUND,
+        square = false,
+        size = ButtonSize.M,
+        ...otherProps
+    } = props;
 
     const mods: Record<string, boolean> = {
-        // [cls.square]: square,
-        // [cls[size]]: true,
-        // [cls.disabled]: disabled,
+        [cls.square]: square,
+        [cls[size]]: true,
     };
 
     return (
-        <button className={classNames(cls.btn, mods, [className])} onClick={onClick}>
+        <button type="button" {...otherProps} className={classNames(cls.btn, mods, [className, cls[theme]])}>
             {children}
         </button>
     );

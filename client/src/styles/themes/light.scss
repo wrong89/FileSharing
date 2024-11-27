@@ -5,12 +5,20 @@
 
     --primary-text-color: var(--light-theme-text-color);
     --primary-background-color: var(--light-theme-background-color);
+
+    --primary-inverted-text-color: var(--light-theme-inverted-text-color);
+    --primary-inverted-background-color: var(--light-theme-background-inverted-color);
+
     --secondary-text-color: var(--light-theme-secondary-color);
     --disabled-text-color: var(--light-theme-disabled-color);
     --divider-color: var(--light-theme-divider-color);
 
     --light-theme-background-color: #fff;
     --light-theme-base-color: #000;
+
+    --light-theme-background-inverted-color: #000;
+    --light-theme-inverted-text-color: #fff;
+
     --light-theme-text-color: #212121;
     --light-theme-secondary-color: #737373;
     --light-theme-disabled-color: #9b9b9b;
