@@ -1,8 +1,10 @@
 .app_light_theme {
     --light-primary-color: #c5cae9;
 
+    
     --light-accent-color: #ff80ab;
-
+    
+    --primary-accent-color: var(--light-accent-color);
     --primary-text-color: var(--light-theme-text-color);
     --primary-background-color: var(--light-theme-background-color);
 
@@ -10,11 +12,15 @@
     --primary-inverted-background-color: var(--light-theme-background-inverted-color);
 
     --secondary-text-color: var(--light-theme-secondary-color);
+    --secondary-background: var(--light-secondary-background);
+
     --disabled-text-color: var(--light-theme-disabled-color);
     --divider-color: var(--light-theme-divider-color);
 
     --light-theme-background-color: #fff;
     --light-theme-base-color: #000;
+
+    --light-secondary-background: #f8f8f8;
 
     --light-theme-background-inverted-color: #000;
     --light-theme-inverted-text-color: #fff;

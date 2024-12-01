@@ -1,12 +1,11 @@
 .app_dark_theme {
-    --yt-spec-text-primary: #f1f1f1;
-    --yt-spec-text-primary-inverse: #0f0f0f;
-
     --primary-color: #3f51b5;
 
+    
     --dark-primary-color: #303f9f;
     --dark-accent-color: #f50057;
-
+    
+    --primary-accent-color: var(--dark-accent-color);
     --primary-background-color: var(--dark-theme-background-color);
     --primary-text-color: var(--dark-theme-text-color);
 
@@ -14,15 +13,18 @@
     --primary-inverted-background-color: var(--dark-theme-background-inverted-color);
 
     --secondary-text-color: var(--dark-theme-secondary-color);
+    --secondary-background: var(--dark-secondary-background);
+    
     --disabled-text-color: var(--dark-theme-disabled-color);
     --divider-color: var(--dark-theme-divider-color);
 
     // --dark-theme-background-color: #212121;
     --dark-theme-background-color: #0f0f0f;
+    --dark-secondary-background: #151515;
 
     --dark-theme-background-inverted-color: #fff;
     --dark-theme-inverted-text-color: #0f0f0f;
-    
+
     --dark-theme-base-color: #fff;
     --dark-theme-text-color: #fff;
     --dark-theme-secondary-color: #bcbcbc;

@@ -1,0 +1,114 @@
+
+
+// .toggleSwitch {
+    // position: relative;
+    // display: inline-block;
+    // width: 50px;
+    // height: 24px;
+
+
+    // input {
+    //     opacity: 0;
+    //     width: 0;
+    //     height: 0;
+
+    //     &:checked + .toggleSwitch__slider  {
+    //         background-color: var(--primary-accent-color);
+    //     }
+
+    //     &:checked + .toggleSwitch__slider::before {
+    //         transform: translateX(23px);
+    //     } 
+    // }
+
+    // &__slider {
+    //     position: absolute;
+    //     cursor: pointer;
+    //     background-color: #ccc;
+    //     border-radius: 24px;
+    //     width: 100%;
+    //     height: 100%;
+    //     transition: background-color 0.3s;
+
+    //     &::before {
+    //         content: "";
+    //         position: absolute;
+    //         height: 20px;
+    //         width: 20px;
+    //         left: 4px;
+    //         bottom: 2px;
+    //         background-color: white;
+    //         border-radius: 50%;
+    //         transition: transform 0.3s;
+    //     }
+    // }
+// }
+
+.toggleSwitch__btn {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggleSwitch {
+    border: 2px solid var(--primary-inverted-background-color);
+    border-radius: 10px;
+    width: 35px;
+    height: 20px;
+    margin-left: 15px;
+
+    transition : border 0.5s;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__circle {
+        transition: all 0.5s;
+        border-radius: 100%;
+        background-color: var(--primary-inverted-background-color);
+        height: 10px;
+        width: 10px;
+        margin: 0 3px;
+        // position: absolute;
+        // bottom: 0;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+
+    &__icon {
+        max-width: 25px;
+        margin-right: 10px;
+
+        path {
+            fill: var(--primary-inverted-background-color) !important;
+            transition: fill 0.5s;
+        }
+    }
+
+    &__text {
+        font-size: 15px;
+    }
+}
+
+.active {
+    .toggleSwitch {
+        border: 2px solid var(--primary-accent-color);
+
+        &__circle {
+            transform: translateX(15px);
+            background-color: var(--primary-accent-color);
+        }
+
+        &__icon {
+            path {
+                // fill: var(--primary-accent-color) !important;
+            }
+        }
+    }
+}
