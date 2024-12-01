@@ -28,6 +28,17 @@
         align-items: center;
     }
 
+    &__icon {
+        fill: var(--primary-inverted-background-color) !important;
+        height: 40px;
+        transition: all 0.5s;
+
+        &:hover {
+            rotate: 80deg;
+            transition: all .5s;
+        }
+    }
+
     &__item {
         cursor: pointer;
         padding: 5px;

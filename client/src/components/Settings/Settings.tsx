@@ -1,18 +1,18 @@
 import { classNames } from '@/lib/classNames/classNames';
 import SettingsIcon from '@assets/settings-icon-outlined.svg?react';
 import { FC, useEffect, useRef, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import ThemeSwitcher from '../ThemeSwither/ThemeSwitcher';
 import Button, { ButtonSize, ButtonTheme } from '../ui/Button/Button';
+import LangSwitcher from '../ui/LangSwitcher/LangSwitcher';
 import cls from './Settings.module.scss';
 
 interface SettingsProps {
     className?: string;
 }
 
-const Settings: FC<SettingsProps> = ({ className }) => {
+const Settings: FC<SettingsProps> = () => {
     const [collapsed, setCollapsed] = useState<boolean>(false);
-    const { t } = useTranslation();
+
     const menuRef = useRef(null);
     const settingsRef = useRef(null);
 
@@ -41,7 +41,7 @@ const Settings: FC<SettingsProps> = ({ className }) => {
             <div ref={settingsRef} className={classNames(cls.settings, {}, [])}>
                 <div className={cls.settings__inner}>
                     <Button onClick={onToggle} square size={ButtonSize.XL} theme={ButtonTheme.CLEAR}>
-                        <SettingsIcon height={40} fill="var(--primary-inverted-background-color)" />
+                        <SettingsIcon className={cls.settings__icon} />
                     </Button>
                 </div>
 
@@ -50,6 +50,10 @@ const Settings: FC<SettingsProps> = ({ className }) => {
                         <ul className={cls.settings__list}>
                             <li className={cls.settings__item}>
                                 <ThemeSwitcher />
+                            </li>
+                            <li className={cls.settings__item}>
+                                {/* <Button>Languages</Button> */}
+                                <LangSwitcher />
                             </li>
                         </ul>
                     </div>
