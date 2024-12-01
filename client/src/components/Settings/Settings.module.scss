@@ -1,0 +1,45 @@
+
+
+.settings {
+    position: relative;
+
+    --menu-left-right-padding: 60px;
+    --menu-left-right-padding-calc: calc(var(--menu-left-right-padding) * -1);
+
+    &__inner {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    &__menu {   
+        position: absolute;
+        padding: 20px 40px;
+        background: var(--secondary-background);
+        margin-top: calc(var(--header-height) / 2);
+        right: -30px;
+        width: 300px;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__item {
+        cursor: pointer;
+        padding: 5px;
+        width: 100%;
+
+        // &:hover {
+        //     background-color: var(--hover-color);
+        // }
+
+        &:not(&:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+}

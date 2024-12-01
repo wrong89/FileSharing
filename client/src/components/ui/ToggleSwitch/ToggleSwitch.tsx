@@ -8,13 +8,18 @@ interface ToggleSwitchProps {
     setActive: Dispatch<SetStateAction<boolean>>;
     icon?: React.VFC<React.SVGProps<SVGSVGElement>>;
     text?: string;
+    callback?: () => void;
 }
 
 const ToggleSwitch: FC<ToggleSwitchProps> = (props) => {
-    const { active, setActive, icon: Icon, text } = props;
+    const { active, setActive, icon: Icon, text, callback } = props;
 
     const toggleTheme = () => {
         setActive((prev) => !prev);
+
+        if (callback) {
+            callback();
+        }
     };
 
     return (
