@@ -23,8 +23,6 @@ class FileController {
 
         const data = await FileService.getFile(id);
 
-        console.log('READ CONTROLLER DATA', data);
-
         if (data) {
             res.send(JSON.parse(data));
         } else {
