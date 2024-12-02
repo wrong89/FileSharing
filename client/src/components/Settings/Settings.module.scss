@@ -19,6 +19,7 @@
         margin-top: calc(var(--header-height) / 2);
         right: -30px;
         width: 300px;
+        z-index: 10;
     }
 
     &__list {
@@ -43,6 +44,10 @@
         cursor: pointer;
         padding: 5px;
         width: 100%;
+
+        button {
+            width: 100%;
+        }
 
         // &:hover {
         //     background-color: var(--hover-color);

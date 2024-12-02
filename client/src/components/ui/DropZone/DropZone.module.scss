@@ -1,5 +1,23 @@
 .drop {
-    width: 300px;
-    height: 300px;
-    background-color: lightpink;
+    transition: border 5s;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: calc(var(--header-height) * 2);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 5;
+    outline: none;
+}
+
+.drag {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border: 5px solid red;
 }

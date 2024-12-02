@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { DropEvent, FileRejection, useDropzone } from 'react-dropzone';
+import { useTranslation } from 'react-i18next';
 import cls from './DropZone.module.scss';
 
 interface DropZoneProps {
@@ -9,15 +10,16 @@ interface DropZoneProps {
 }
 
 const DropZone: FC<DropZoneProps> = ({ onDrop }) => {
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop, noClick: true, noKeyboard: true });
+    const { t } = useTranslation();
 
     return (
         <div className={cls.drop} {...getRootProps()}>
             <input {...getInputProps()} />
             {isDragActive ? (
-                <p>Drop the files here ...</p>
+                <div className={cls.drag}></div>
             ) : (
-                <p>Drag 'n' drop some files here, or click to select files</p>
+                <h1 className={cls.drop__text}>{t('drag_and_drop_text')}</h1>
             )}
         </div>
     );
