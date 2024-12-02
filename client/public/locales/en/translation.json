@@ -1,4 +1,5 @@
 {
     "test": "some test",
-    "dark_theme": "Dark theme"
+    "dark_theme": "Dark theme",
+    "drag_and_drop_text": "Drag & drop some files here"
 }

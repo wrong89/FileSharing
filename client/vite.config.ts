@@ -1,10 +1,15 @@
 import react from '@vitejs/plugin-react-swc';
+import fs from 'fs';
 import path from 'path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 // https://vite.dev/config/
 export default defineConfig({
+    define: {
+        languages: JSON.stringify(fs.readdirSync(path.resolve(__dirname, 'public', 'locales'))),
+    },
+
     resolve: {
         alias: {
             '@': path.resolve(__dirname, './src'),
@@ -20,13 +25,13 @@ export default defineConfig({
     },
     plugins: [react(), svgr()],
     server: {
-        host: '0.0.0.0', // Это важно для доступа к серверу из контейнера
+        host: '0.0.0.0',
         watch: {
-            usePolling: true, // Включаем polling для отслеживания изменений в Docker
+            usePolling: true,
         },
         hmr: {
-            protocol: 'ws', // Важно для корректной работы WebSocket
-            host: 'localhost', // Указываем хост, с которого будет работать HMR
+            protocol: 'ws',
+            host: 'localhost',
         },
     },
 });
