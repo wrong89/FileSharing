@@ -1,3 +1,13 @@
 .fileinfo {
+    &__inner {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
     
+
+    &__data {
+        margin-bottom: 50px;
+    }
 }

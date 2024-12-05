@@ -1,5 +1,8 @@
 {
     "test": "some test",
     "dark_theme": "Dark theme",
-    "drag_and_drop_text": "Drag & drop some files here"
+    "drag_and_drop_text": "Drag & drop some files here",
+    "download": "Download",
+    "file_name": "File name",
+    "clarification": "File Preview"
 }

@@ -12,9 +12,9 @@ const AppRouter = () => {
                     key={path}
                     path={path}
                     element={
-                        <Suspense fallback={<Loader />}>
-                            <Layout>{element}</Layout>
-                        </Suspense>
+                        <Layout>
+                            <Suspense fallback={<Loader />}>{element}</Suspense>
+                        </Layout>
                     }
                 />
             ))}

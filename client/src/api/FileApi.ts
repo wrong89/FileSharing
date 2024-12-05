@@ -4,7 +4,6 @@ import axios from 'axios';
 
 interface FileApiRepository {
     read: (id: string) => void;
-    // save: (fileToSave: SavedFile) => Promise<string>;
     save: (fileToSave: SavedFile) => void;
 }
 
@@ -42,9 +41,13 @@ class FileApi implements FileApiRepository {
         const fileBlob = new Blob([fileToSave.fileBuffer], {
             type: fileToSave.file?.type,
         });
-        formData.append('fileBuffer', fileBlob, fileName);
+        formData.append('fileBuffer', fileBlob, encodeURIComponent(fileName));
 
-        const { data } = await axios.post(this.generateApiUrl(['save'], true), formData);
+        const { data } = await axios.post(this.generateApiUrl(['save'], true), formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data',
+            },
+        });
 
         const savedFileRoute = this.generateApiUrl([AppRoutes.READ, data.id], false);
 

@@ -1,0 +1,17 @@
+.representation {
+    position: relative;
+    
+    max-width: 1000px;
+    padding: 10px;
+    border: 1px solid var(--primary-inverted-background-color);
+    margin-top: 100px;
+
+    &__clarification {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        top: -30px;
+        left: 0;
+        color: var(--secondary-text-color);
+    }
+}
