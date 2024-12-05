@@ -1,4 +1,6 @@
 .fileinfo {
+    margin-top: 200px;
+
     &__inner {
         display: flex;
         align-items: center;
@@ -8,6 +10,10 @@
     
 
     &__data {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
+    }
+
+    &__content {
+        margin-bottom: 20px;
     }
 }

@@ -1,5 +1,6 @@
 import { classNames } from '@/lib/classNames/classNames';
 import { FileFromStorage } from '@/types/File';
+import FileIcon from '@assets/fileIcon.svg?react';
 import { FC, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './FileContentRepresentation.module.scss';
@@ -54,6 +55,7 @@ const FileContentRepresentation: FC<FileContentRepresentationProps> = ({ file, c
                     ))}
                 </div>
             )}
+            {!textData && <FileIcon className={cls.representation__file} />}
         </div>
     );
 };

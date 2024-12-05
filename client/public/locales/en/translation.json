@@ -4,5 +4,7 @@
     "drag_and_drop_text": "Drag & drop some files here",
     "download": "Download",
     "file_name": "File name",
-    "clarification": "File Preview"
+    "clarification": "File Preview",
+    "not_found": "Page not found",
+    "upload_page": "Back to upload page"
 }
