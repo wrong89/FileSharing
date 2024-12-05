@@ -30,7 +30,9 @@
             "@lib/*": ["src/lib/*"],
             "@types/*": ["src/types/*"],
             "@api/*": ["src/api/*"],
-            "@config/*": ["src/config/*"]
+            "@config/*": ["src/config/*"],
+            "@styles/*": ["src/styles/*"],
+            "@providers/*": ["src/providers/*"]
         }
     },
     "include": ["src"]
