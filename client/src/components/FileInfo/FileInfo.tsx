@@ -11,8 +11,6 @@ interface FileInfoProps {
 
 const FileInfo: FC<FileInfoProps> = ({ file }) => {
     const { t } = useTranslation();
-    const blob = new Blob([new Uint8Array(file.data.data)], { type: file.data.type });
-    const url = URL.createObjectURL(blob);
 
     return (
         <div className={cls.fileinfo}>
