@@ -55,7 +55,7 @@ const FileContentRepresentation: FC<FileContentRepresentationProps> = ({ file, c
                     ))}
                 </div>
             )}
-            {!textData && <FileIcon className={cls.representation__file} />}
+            {!textData || (file.mimetype.includes('image') && <FileIcon className={cls.representation__file} />)}
         </div>
     );
 };
