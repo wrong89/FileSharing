@@ -1,5 +1,6 @@
 import FileApi from '@/api/FileApi';
 import FileInfo from '@/components/FileInfo/FileInfo';
+import Loader from '@/components/ui/Loader/Loader';
 import { FileFromStorage } from '@/types/File';
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
@@ -30,7 +31,7 @@ const ReadFilePage = () => {
         getFileData();
     }, []);
 
-    return <div>{fileData && <FileInfo file={fileData} />}</div>;
+    return <div>{fileData ? <FileInfo file={fileData} /> : <Loader />}</div>;
 };
 
 export default ReadFilePage;

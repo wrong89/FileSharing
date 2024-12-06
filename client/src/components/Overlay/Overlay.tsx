@@ -4,13 +4,17 @@ import { downloadZip } from 'client-zip';
 import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import DropZone from '../ui/DropZone/DropZone';
+import Loader from '../ui/Loader/Loader';
 import cls from './Overlay.module.scss';
 
 const Overlay = () => {
     const navigate = useNavigate();
     const [savedFile, setSavedFile] = useState<SavedFile | null>();
+    const [loader, setLoader] = useState<JSX.Element | null>(null);
 
     const onDrop = useCallback((acceptedFiles: File[]) => {
+        setLoader(<Loader />);
+
         if (!acceptedFiles.length) {
             return;
         }
@@ -49,11 +53,7 @@ const Overlay = () => {
         redirectToSavedFile();
     }, [savedFile]);
 
-    return (
-        <div className={cls.overlay}>
-            <DropZone onDrop={onDrop} />
-        </div>
-    );
+    return <div className={cls.overlay}>{loader ? loader : <DropZone onDrop={onDrop} />}</div>;
 };
 
 export default Overlay;
