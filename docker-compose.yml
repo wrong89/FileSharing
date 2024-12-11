@@ -11,6 +11,7 @@ services:
 
   server:
     build: ./server
+    image: wrong21/backend-server:latest
     container_name: backend_server
     ports:
       - '5000:5000'
@@ -25,6 +26,7 @@ services:
 
   client:
     build: ./client
+    image: wrong21/frontend-client:latest
     container_name: frontend_client
     volumes:
       - ./client:/client

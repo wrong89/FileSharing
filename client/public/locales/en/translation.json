@@ -6,5 +6,7 @@
     "file_name": "File name",
     "clarification": "File Preview",
     "not_found": "Page not found",
-    "upload_page": "Back to upload page"
+    "upload_page": "Back to upload page",
+    "copy_text": "Copy URL",
+    "file_size": "File size"
 }

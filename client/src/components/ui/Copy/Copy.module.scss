@@ -1,0 +1,23 @@
+.copy {
+    position: relative;
+
+    &:hover {
+        transition: all .5s;
+
+    }
+
+    &__text {
+        color: var(--primary-inverted-text-color);
+        background-color: var(--primary-inverted-background-color);
+        transition: all .5s;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 10px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+}
