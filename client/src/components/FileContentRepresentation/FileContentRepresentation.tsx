@@ -48,10 +48,10 @@ const FileContentRepresentation: FC<FileContentRepresentationProps> = ({ file, c
             {file.mimetype.includes('svg') && (
                 <div className={cls.representation__img} dangerouslySetInnerHTML={{ __html: textData }}></div>
             )}
-            {file.mimetype.includes('text') && typeof textData === 'object' && (
+            {file.mimetype.includes('text/plain') && typeof textData === 'object' && (
                 <div className={cls.representation__text}>
-                    {textData.map((item) => (
-                        <p key={item}>{item}</p>
+                    {textData.map((item, index) => (
+                        <p key={index}>{item}</p>
                     ))}
                 </div>
             )}

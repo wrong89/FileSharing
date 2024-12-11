@@ -1,16 +1,10 @@
 .representation {
     position: relative;
-    
-    max-width: 1000px;
-    padding: 10px;
-    border: 1px solid var(--primary-inverted-background-color);
 
     &__clarification {
-        position: absolute;
         text-align: center;
-        width: 100%;
-        top: -30px;
-        left: 0;
+        margin-bottom: 20px;
+        // width: -webkit-fill-available;
         color: var(--secondary-text-color);
     }
 
@@ -19,4 +13,12 @@
         width: 200px;
         height: 100px;
     }
+
+    &__text {
+        padding: 10px 50px;
+    }
+
+    &__img {
+        max-width: 1300px;
+    } 
 }
