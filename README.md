@@ -1,6 +1,6 @@
 # Description
-FileSharing it's website which you can you for files sharing. 
-You upload file(via Drag & Drop), send link anybody which can download your uploaded file(s)
+FileSharing is a website that you can use for sharing files.
+You upload a file (via Drag & Drop) and send a link to anyone who can download your uploaded file(s).
 
 # How to execute
 - git clone https://github.com/wrong89/FileSharing.git
