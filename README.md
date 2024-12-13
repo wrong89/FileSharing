@@ -8,3 +8,4 @@ You upload a file (via Drag & Drop) and send a link to anyone who can download y
 - docker pull wrong21/frontend-client:latest
 - docker pull wrong21/backend-server:latest
 - docker-compose up;
+- Open the http://localhost:5173/
