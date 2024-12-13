@@ -1,5 +1,5 @@
 # Description
-FileSharing is a website that you can use for sharing files.
+FileSharing is a website for sharing files.
 You upload a file (via Drag & Drop) and send a link to anyone who can download your uploaded file(s).
 
 # How to execute via Docker
