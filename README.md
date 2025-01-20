@@ -8,6 +8,6 @@ git clone https://github.com/wrong89/FileSharing.git
 cd ./FileSharing
 docker pull wrong21/frontend-client:latest
 docker pull wrong21/backend-server:latest
-docker-compose up;
+docker-compose up
 ``` 
 Open the http://localhost:5173/
